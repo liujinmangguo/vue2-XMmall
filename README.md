@@ -1,6 +1,6 @@
-# imoocmall
+# XMmall
 
-> Imooc Mall 
+> 小米 Mall 
 
 ## Build Setup
 
