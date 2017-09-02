@@ -31,6 +31,7 @@ mkdir data
 [root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# cd etc
 [root@iZuf6c93k7a7ptlfsh26h4Z etc]# vi mongo.conf
 ```
+##mongo.conf 配置 -》i
 
 ``` bash
 dbpath=/mongodb/data
@@ -40,6 +41,8 @@ journal=true
 quiet=true
 port=27017
 ```
+
+## esc -》 :wq 保存
 
 ``` bash
 
