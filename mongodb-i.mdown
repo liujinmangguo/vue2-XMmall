@@ -1,0 +1,87 @@
+# 我的阿里云服务器Node.js安装
+
+> 操作系统： CentOS 7.3 64位
+登录远程服务器 ssh root@IP
+输入pwd：***
+
+## 打开本地shell终端
+
+``` bash
+#upload mongodb.tar
+scp /Users/liujinjing/Downloads/mongodb-linux-x86_64-rhel70-3.4.7.tar root@101.132.74.199:/
+```
+
+
+## 打开shell：登录远程服务器 ssh root@IP
+## Build Setup
+
+``` bash
+
+tar -xvf mongodb-linux-x86_64-rhel70-3.4.7.tar
+
+mkdir mongodb
+mv /mongodb-linux-x86_64-rhel70-3.4.7 /mongodb
+cd mongodb
+mkdir data
+[root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# mkdir logs
+[root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# cd logs/
+[root@iZuf6c93k7a7ptlfsh26h4Z logs]# touch mongo.log
+[root@iZuf6c93k7a7ptlfsh26h4Z logs]# cd ..
+[root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# mkdir etc
+[root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# cd etc
+[root@iZuf6c93k7a7ptlfsh26h4Z etc]# vi mongo.conf
+```
+
+``` bash
+dbpath=/mongodb/data
+logpath=/mongodb/logs/mongo.log
+logappend=true
+journal=true
+quiet=true
+port=27017
+```
+
+``` bash
+
+[root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# cd mongodb-linux-x86_64-rhel70-3.4.7/
+[root@iZuf6c93k7a7ptlfsh26h4Z mongodb-linux-x86_64-rhel70-3.4.7]# cd bin/
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# ls
+bsondump  mongodump    mongoimport  mongoreplay   mongostat
+mongo     mongoexport  mongooplog   mongorestore  mongotop
+mongod    mongofiles   mongoperf    mongos
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# ln -s /mongodb/mongodb-linux-x86_64-rhel70-3.4.7/bin/mongo /usr/local/bin/mongo
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# ln -s /mongodb/mongodb-linux-x86_64-rhel70-3.4.7/bin/mongod /usr/local/bin/mongod
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# ln -s /mongodb/etc /usr/local/bin/etc
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# cd /usr/local/bin/
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# ls
+etc  mongo  mongod  node  npm
+[root@iZuf6c93k7a7ptlfsh26h4Z bin]# cd etc/
+[root@iZuf6c93k7a7ptlfsh26h4Z etc]# ls
+mongo.conf
+[root@iZuf6c93k7a7ptlfsh26h4Z etc]# 
+[root@iZuf6c93k7a7ptlfsh26h4Z etc]# cd /
+[root@iZuf6c93k7a7ptlfsh26h4Z /]# mongod -f /usr/local/bin/etc/mongo.conf
+```
+
+##command+t再开一个端口
+
+``` bash
+
+liujinjingdeMacBook-Pro:var liujinjing$ ssh root@101.132.74.199
+root@101.132.74.199's password: 
+Last login: Sat Sep  2 09:42:13 2017 from 124.14.39.20
+
+Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@iZuf6c93k7a7ptlfsh26h4Z ~]# mongo
+MongoDB shell version v3.4.7
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.4.7
+Welcome to the MongoDB shell.
+> show dbs
+admin  0.000GB
+local  0.000GB
+> use demo
+switched to db demo
+> 
+```
