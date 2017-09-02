@@ -1,4 +1,4 @@
-# 我的阿里云服务器Node.js安装
+# 我的阿里云服务器MongoDB安装
 
 > 操作系统： CentOS 7.3 64位
 登录远程服务器 ssh root@IP
@@ -16,9 +16,8 @@ scp /Users/liujinjing/Downloads/mongodb-linux-x86_64-rhel70-3.4.7.tar root@101.1
 ## Build Setup
 
 ``` bash
-
+cd /
 tar -xvf mongodb-linux-x86_64-rhel70-3.4.7.tar
-
 mkdir mongodb
 mv /mongodb-linux-x86_64-rhel70-3.4.7 /mongodb
 cd mongodb
@@ -31,8 +30,7 @@ mkdir data
 [root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# cd etc
 [root@iZuf6c93k7a7ptlfsh26h4Z etc]# vi mongo.conf
 ```
-##mongo.conf 配置 -》i
-
+## mongo.conf 配置 -》i
 ``` bash
 dbpath=/mongodb/data
 logpath=/mongodb/logs/mongo.log
@@ -43,9 +41,7 @@ port=27017
 ```
 
 ## esc -》 :wq 保存
-
 ``` bash
-
 [root@iZuf6c93k7a7ptlfsh26h4Z mongodb]# cd mongodb-linux-x86_64-rhel70-3.4.7/
 [root@iZuf6c93k7a7ptlfsh26h4Z mongodb-linux-x86_64-rhel70-3.4.7]# cd bin/
 [root@iZuf6c93k7a7ptlfsh26h4Z bin]# ls
@@ -66,16 +62,9 @@ mongo.conf
 [root@iZuf6c93k7a7ptlfsh26h4Z /]# mongod -f /usr/local/bin/etc/mongo.conf
 ```
 
-##command+t再开一个端口
-
+## command+t再开一个端口
 ``` bash
-
-liujinjingdeMacBook-Pro:var liujinjing$ ssh root@101.132.74.199
-root@101.132.74.199's password: 
-Last login: Sat Sep  2 09:42:13 2017 from 124.14.39.20
-
-Welcome to Alibaba Cloud Elastic Compute Service !
-
+liujinjingdeMacBook-Pro:var liujinjing$ ssh root@IP
 [root@iZuf6c93k7a7ptlfsh26h4Z ~]# mongo
 MongoDB shell version v3.4.7
 connecting to: mongodb://127.0.0.1:27017
