@@ -1,0 +1,21 @@
+##我的阿里云服务器Node.js安装
+*.操作系统： CentOS 7.3 64位
+登录远程服务器 ssh root@IP
+输入pwd：***
+*.下载Node.js
+安装Nodejs taobao镜像
+wget https://npm.taobao.org/mirrors/node/v8.4.0/node-v8.4.0-linux-x64.tar.xz
+xz -d node-v8.4.0-linux-x64.tar.xz 
+ls -l
+tar -xvf node-v8.4.0-linux-x64.tar 
+*.建立软链接
+ln -s /node-v8.4.0-linux-x64/bin/node /usr/local/bin/node
+ln -s /node-v8.4.0-linux-x64/bin/npm /usr/local/bin/npm
+*.检查下载安装
+[root@iZuf6c93k7a7ptlfsh26h4Z /]# node -v
+v8.4.0
+[root@iZuf6c93k7a7ptlfsh26h4Z /]# npm -v
+5.3.0
+
+
+  
